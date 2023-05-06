@@ -264,8 +264,8 @@ def calculate_Time_Difference(t1, t2):
     m2 = int(t2[3:5])
     s1 = int(t1[6:8])
     s2 = int(t2[6:8])
-    d1 = datetime(2022, 1, 1, h1, m1, s1)
-    d2 = datetime(2022, 1, 1, h2, m2, s2)
+    d1 = datetime(2023, 1, 1, h1, m1, s1)
+    d2 = datetime(2023, 1, 1, h2, m2, s2)
     return (d1 - d2).seconds
 
 
