@@ -159,8 +159,8 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     r = post(txUrl, params=pre_data, headers=headers)
     print("r:", r.text)
     good_Night = r.json()["newslist"][0]["content"]
-    print("good_Night:", good_Night)
     good_Night = "一起做更好的自己!"
+    print("good_Night:", good_Night)
     
     for theuser in to_user:  #遍历需要推送的用户
         data = {
@@ -178,7 +178,7 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                     "color": "#808A87"
                 },
                 "weather": {
-                    "value": weather,
+                    "value": good_Night,
                     "color": "#ED9121"
                 },
                 "min_temperature": {
