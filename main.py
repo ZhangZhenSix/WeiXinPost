@@ -152,14 +152,14 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
     # 获取天行数据晚安心语
-    txUrl = "http://api.tianapi.com/wanan/index"
+    txUrl = "http://api.tianapi.com/zaoan/index"
     key = config.good_Night_Key
     pre_data = {"key": key}
     # param = json.dumps((pre_data))
     r = post(txUrl, params=pre_data, headers=headers)
     print("r:", r.text)
     good_Night = r.json()["newslist"][0]["content"]
-    # good_Night = "晚安"
+    # good_Night = "早安"
     
     theuser = to_user[0]
     data = {
@@ -299,6 +299,9 @@ if __name__ == '__main__':
     if datetime.now().strftime('%H:%M:%S') < config.post_Time:
         send_message(user, accessToken, city, weather, max_temperature, min_temperature)
         isPost = True
+    else:
+        print("当前时间已过早安心语推送设置的时间！")
+        
     # 课程提醒推送
     while True:
         goodNightTime = config.good_Night_Time
