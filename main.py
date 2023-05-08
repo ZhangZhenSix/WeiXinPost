@@ -159,55 +159,52 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     r = post(txUrl, params=pre_data, headers=headers)
     print("r:", r.text)
     good_Night = r.json()["newslist"][0]["content"]
+    print("good_Night:", good_Night)
     # good_Night = "早安"
     
-    theuser = to_user[0]
-    data = {
-        "touser": theuser,
-        "template_id": config.template_id1,
-        "url": "http://weixin.qq.com/download",
-        "topcolor": "#FF0000",
-        "data": {
-            "weeks": {
-                "value": weeks,
-                "color": "#00FFFF"
-            },
-            "date": {
-                "value": "{} {}".format(today, week),
-                "color": "#00FFFF"
-            },
-            "city": {
-                "value": city_name,
-                "color": "#808A87"
-            },
-            "weather": {
-                "value": weather,
-                "color": "#ED9121"
-            },
-            "min_temperature": {
-                "value": min_temperature,
-                "color": "#00FF00"
-            },
-            "max_temperature": {
-                "value": max_temperature,
-                "color": "#FF6100"
-            },
-            "love_day": {
-                "value": love_days,
-                "color": "#87CEEB"
-            },
-            "birthday": {
-                "value": birth_day,
-                "color": "#FF8000"
-            },
-            "goodNight": {
-                "value": good_Night,
-                "color": "#87CEEB"
+    for theuser in to_user:  #遍历需要推送的用户
+        data = {
+            "touser": theuser,
+            "template_id": config.template_id1,
+            "url": "http://weixin.qq.com/download",
+            "topcolor": "#FF0000",
+            "data": {
+                "date": {
+                    "value": "{} {}".format(today, week),
+                    "color": "#00FFFF"
+                },
+                "city": {
+                    "value": city_name,
+                    "color": "#808A87"
+                },
+                "weather": {
+                    "value": weather,
+                    "color": "#ED9121"
+                },
+                "min_temperature": {
+                    "value": min_temperature,
+                    "color": "#00FF00"
+                },
+                "max_temperature": {
+                    "value": max_temperature,
+                    "color": "#FF6100"
+                },
+                "love_day": {
+                    "value": love_days,
+                    "color": "#87CEEB"
+                },
+                "birthday": {
+                    "value": birth_day,
+                    "color": "#FF8000"
+                },
+                "goodNight": {
+                    "value": good_Night,
+                    "color": "#FF8000"
+                }
             }
         }
-    }
-    response = post(url, headers=headers, json=data)
-    print(response.text)
+        response = post(url, headers=headers, json=data)
+        print(response.text)
 
 
 # 发送课程消息
