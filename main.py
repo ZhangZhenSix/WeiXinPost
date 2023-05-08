@@ -160,7 +160,7 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     print("r:", r.text)
     good_Night = r.json()["newslist"][0]["content"]
     print("good_Night:", good_Night)
-    # good_Night = "早安"
+    good_Night = "谨慎小心是好事；深谋远虑是明智"
     
     for theuser in to_user:  #遍历需要推送的用户
         data = {
