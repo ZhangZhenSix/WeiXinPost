@@ -47,6 +47,26 @@ def get_weather(province, city):
     tempn = weatherinfo["tempn"]
     return weather, temp, tempn
 
+#获取中英短句
+def get_ensentence():
+    headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+    }
+     # 获取天行数据晚安心语
+    txUrl = "http://api.tianapi.com/ensentence/index"
+    key = config.good_Night_Key
+    pre_data = {"key": key}
+    # param = json.dumps((pre_data))
+    r = post(txUrl, params=pre_data, headers=headers)
+    print("get_ensentence:", r.text)
+    zh = r.json()["newslist"][0]["zh"]
+    en = r.json()["newslist"][0]["en"]
+    print("zh:", zh)
+    print("en:", en)
+    return zh, en
+
 
 # 获取今天是第几周，返回字符串
 def get_Today_Week():
@@ -144,24 +164,15 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     else:
         birth_date = year_date
         birth_day = str(birth_date.__sub__(today)).split(" ")[0]
-
-        
+    
     headers = {
         'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
-    # 获取天行数据晚安心语
-    txUrl = "http://api.tianapi.com/zaoan/index"
-    key = config.good_Night_Key
-    pre_data = {"key": key}
-    # param = json.dumps((pre_data))
-    r = post(txUrl, params=pre_data, headers=headers)
-    print("r:", r.text)
-    good_Night = r.json()["newslist"][0]["content"]
-    print("good_Night:", good_Night)
-    good_Night = "谨慎小心是好事；深谋远虑是明智"
-    
+
+    zh, en = get_ensentence()
+
     for theuser in to_user:  #遍历需要推送的用户
         data = {
             "touser": theuser,
@@ -197,12 +208,17 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                     "value": birth_day,
                     "color": "#FF8000"
                 },
-                "goodNight": {
-                    "value": good_Night,
+                "zh": {
+                    "value": zh,
+                    "color": "#FF8000"
+                },
+                "en": {
+                    "value": en,
                     "color": "#FF8000"
                 }
             }
         }
+
         response = post(url, headers=headers, json=data)
         print(response.text)
 
