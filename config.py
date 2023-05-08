@@ -13,8 +13,8 @@ template_id2 = "loe1yHWr************************************"
 template_id3 = "A0FED6ucHRoMboK4I49tWlgUDH6qKTeZhRXqqncKYfw"
 # 接收公众号消息的微信号
 # 这是openid
-#user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw"]
-user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x520AcC7l3YAYqgYVfqOzDRs"]
+user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw"]
+#user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x520AcC7l3YAYqgYVfqOzDRs"]
 
 # 信息配置
 # 所在省份
@@ -22,10 +22,10 @@ province = "江西"
 # 所在城市
 city = "景德镇"
 # 生日，如果月份或者日期小于10，直接用对应的数字即可，例如1997-1-1，---------倒计时
-#birthday = "2001-7-22"
-birthday = "2002-10-24"
+birthday = "2001-7-22"
+#birthday = "2002-10-24"
 # 在一起的日子，格式同上------------计时器
-love_date = "2021-9-1"
+love_date = "2021-3-1"
 # 天行数据晚安心语 key
 good_Night_Key = "ff65b66466d77f098310cdb4a99f05fc"
 # -------------------------------------------------------------------------
