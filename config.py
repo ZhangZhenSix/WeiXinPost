@@ -9,10 +9,10 @@ template_id1 = "zwXWZARoPgEil0GlEtg698T94hQKuU3crqt3Xosmu6A"
 # 课程消息,上课提醒
 template_id2 = "loe1yHWr************************************"
 # 晚安心语
-template_id3 = "-fun9-2************************************"
+template_id3 = "A0FED6ucHRoMboK4I49tWlgUDH6qKTeZhRXqqncKYfw"
 # 接收公众号消息的微信号
 # 这是openid
-user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I"]
+user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw"]
 
 # 信息配置
 # 所在省份
