@@ -31,9 +31,9 @@ year = 2023
 month = 1
 day = 20
 # 每日推送时间
-post_Time = "18:05:00"
+post_Time = "12:20:00"
 # 晚安心语及第二天课程推送时间
-good_Night_Time = "22:55:00"
+good_Night_Time = "12:25:00"
 
 # 模板 1：每日提醒模板
 # 本周是开学的第: {{weeks.DATA}} 周
