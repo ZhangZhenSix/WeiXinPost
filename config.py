@@ -31,7 +31,7 @@ year = 2023
 month = 1
 day = 20
 # 每日推送时间
-post_Time = "12:20:00"
+post_Time = "14:59:00"
 # 晚安心语及第二天课程推送时间
 good_Night_Time = "12:25:00"
 
