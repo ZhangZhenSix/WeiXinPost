@@ -145,6 +145,22 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
         birth_date = year_date
         birth_day = str(birth_date.__sub__(today)).split(" ")[0]
 
+        
+   headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+    }
+    # 获取天行数据晚安心语
+    txUrl = "http://api.tianapi.com/wanan/index"
+    key = config.good_Night_Key
+    pre_data = {"key": key}
+    # param = json.dumps((pre_data))
+    r = post(txUrl, params=pre_data, headers=headers)
+    print("r:", r.text)
+    good_Night = r.json()["newslist"][0]["content"]
+    # good_Night = "晚安"
+    
     theuser = to_user[0]
     data = {
         "touser": theuser,
@@ -183,6 +199,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
             "birthday": {
                 "value": birth_day,
                 "color": "#FF8000"
+            },
+            "goodNight": {
+                "value": good_Night,
+                "color": "#87CEEB"
             }
         }
     }
