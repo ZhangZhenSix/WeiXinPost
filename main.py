@@ -223,6 +223,99 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
         print(response.text)
 
 
+
+def send_message2(to_user, access_token, city_name, weather, max_temperature, min_temperature):
+    url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
+    week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+    year = localtime().tm_year
+    month = localtime().tm_mon
+    day = localtime().tm_mday
+    today = datetime.date(datetime(year=year, month=month, day=day))
+    # 星期几
+    week = week_list[today.weekday()]
+    # 开学的第几周
+    weeks = get_Today_Week()
+    # 获取在一起的日子的日期格式
+    love_year = int(config.love_date.split("-")[0])
+    love_month = int(config.love_date.split("-")[1])
+    love_day = int(config.love_date.split("-")[2])
+    love_date = date(love_year, love_month, love_day)
+    # 获取在一起的日期差
+    love_days = str(today.__sub__(love_date)).split(" ")[0]
+    # 获取生日的月和日
+    birthday_month = int(config.birthday2.split("-")[1])
+    birthday_day = int(config.birthday2.split("-")[2])
+    # 今年生日
+    year_date = date(year, birthday_month, birthday_day)
+    # 计算生日年份，如果还没过，按当年减，如果过了需要+1
+    if today > year_date:
+        birth_date = date((year + 1), birthday_month, birthday_day)
+        birth_day = str(birth_date.__sub__(today)).split(" ")[0]
+    elif today == year_date:
+        birth_day = 0
+    else:
+        birth_date = year_date
+        birth_day = str(birth_date.__sub__(today)).split(" ")[0]
+    
+    headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+    }
+
+    zh, en = get_ensentence()
+
+    for theuser in to_user:  #遍历需要推送的用户
+        data = {
+            "touser": theuser,
+            "template_id": config.template_id1_1,
+            "url": "http://weixin.qq.com/download",
+            "topcolor": "#FF0000",
+            "data": {
+                "date": {
+                    "value": "{} {}".format(today, week),
+                    "color": "#00FFFF"
+                },
+                "city": {
+                    "value": city_name,
+                    "color": "#808A87"
+                },
+                "weather": {
+                    "value": weather,
+                    "color": "#ED9121"
+                },
+                "min_temperature": {
+                    "value": min_temperature,
+                    "color": "#00FF00"
+                },
+                "max_temperature": {
+                    "value": max_temperature,
+                    "color": "#FF6100"
+                },
+                "love_day": {
+                    "value": love_days,
+                    "color": "#87CEEB"
+                },
+                "birthday": {
+                    "value": birth_day,
+                    "color": "#FF8000"
+                },
+                "zh": {
+                    "value": zh,
+                    "color": "#FF8000"
+                },
+                "en": {
+                    "value": en,
+                    "color": "#FF8000"
+                }
+            }
+        }
+
+        response = post(url, headers=headers, json=data)
+        print(response.text)
+
+
+
 # 发送课程消息
 def send_Class_Message(to_user, access_token, classInfo):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
@@ -310,7 +403,14 @@ if __name__ == '__main__':
     isPost = False
     # 公众号推送消息
     if datetime.now().strftime('%H:%M:%S') < config.post_Time:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature)
+        for theuser in user:  #遍历需要推送的用户
+            if(user=="oWX9x5wYWLQSCgdwHpbwiyLSXw8I" or user=="oWX9x58k81Me-RlkSSfJEhPhQNEw"):
+                send_message(user, accessToken, city, weather, max_temperature, min_temperature)
+            else:
+                 province, city = config.province2, config.city2
+                 weather, max_temperature, min_temperature = get_weather(province, city)
+                 send_message2(user, accessToken, city, weather, max_temperature, min_temperature)
+            
         isPost = True
     else:
         print("当前时间已过早安心语推送设置的时间！")
