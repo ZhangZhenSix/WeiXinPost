@@ -20,10 +20,10 @@ user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw","oWX9x520A
 # 信息配置
 # 所在省份
 province = "江西"
-province2 = "江西"
+province2 = "湖北"
 # 所在城市
 city = "景德镇"
-city2 = "南昌"
+city2 = "武汉"
 # 生日，如果月份或者日期小于10，直接用对应的数字即可，例如1997-1-1，---------倒计时
 birthday = "2001-7-22"
 birthday2 = "2002-10-24"
