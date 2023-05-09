@@ -7,23 +7,26 @@ app_secret = "fc20353ebb4def3f2912e887cb06d51b"
 # 每日消息
 #template_id1 = "X3cPJP9EI2an40lXlPZuYtk4MmhF9aYfnZ0LV9rM-L8"
 template_id1 = "X3cPJP9EI2an40lXlPZuYtk4MmhF9aYfnZ0LV9rM-L8"
+template_id1_1 = "U9WYGAuJaBAYnEZT7oIk0zCYJ1T7Tgw78Nej6K9T5Qs"
 # 课程消息,上课提醒
 template_id2 = "loe1yHWr************************************"
 # 晚安心语
 template_id3 = "A0FED6ucHRoMboK4I49tWlgUDH6qKTeZhRXqqncKYfw"
 # 接收公众号消息的微信号
 # 这是openid
-user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw"]
+user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw","oWX9x520AcC7l3YAYqgYVfqOzDRs"]
 #user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x520AcC7l3YAYqgYVfqOzDRs"]
 
 # 信息配置
 # 所在省份
 province = "江西"
+province2 = "江西"
 # 所在城市
 city = "景德镇"
+city2 = "南昌"
 # 生日，如果月份或者日期小于10，直接用对应的数字即可，例如1997-1-1，---------倒计时
 birthday = "2001-7-22"
-#birthday = "2002-10-24"
+birthday2 = "2002-10-24"
 # 在一起的日子，格式同上------------计时器
 love_date = "2021-3-1"
 # 天行数据晚安心语 key
