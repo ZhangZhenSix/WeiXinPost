@@ -7,7 +7,7 @@ app_secret = "fc20353ebb4def3f2912e887cb06d51b"
 # 每日消息
 #template_id1 = "X3cPJP9EI2an40lXlPZuYtk4MmhF9aYfnZ0LV9rM-L8"
 template_id1 = "X3cPJP9EI2an40lXlPZuYtk4MmhF9aYfnZ0LV9rM-L8"
-template_id1_1 = "U9WYGAuJaBAYnEZT7oIk0zCYJ1T7Tgw78Nej6K9T5Qs"
+template_id1_1 = "zkJVCFIc2p74q-oGJ_B2BOMbDq_MXiHIYlXwd7iCQZg"
 # 课程消息,上课提醒
 template_id2 = "loe1yHWr************************************"
 # 晚安心语
@@ -37,7 +37,7 @@ year = 2023
 month = 1
 day = 20
 # 每日推送时间
-post_Time = "19:35:00"
+post_Time = "07:35:00"
 # 晚安心语及第二天课程推送时间
 good_Night_Time = "14:59:00"
 
