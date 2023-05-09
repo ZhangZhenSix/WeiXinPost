@@ -14,7 +14,7 @@ template_id2 = "loe1yHWr************************************"
 template_id3 = "A0FED6ucHRoMboK4I49tWlgUDH6qKTeZhRXqqncKYfw"
 # 接收公众号消息的微信号
 # 这是openid
-user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw","oWX9x520AcC7l3YAYqgYVfqOzDRs"]
+user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x58k81Me-RlkSSfJEhPhQNEw","oWX9x520AcC7l3YAYqgYVfqOzDRs","oWX9x5x7NCHf5AEAjfsEY-T8GsnM"]
 #user = ["oWX9x5wYWLQSCgdwHpbwiyLSXw8I","oWX9x520AcC7l3YAYqgYVfqOzDRs"]
 
 # 信息配置
